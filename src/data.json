@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "_id": "dress1",
+      "title": "Dress 1",
+      "image": "https://www.kmart.com.au/wcsstore/Kmart/images/ncatalog/f/2/69699542-1-f.jpg",
+      "description": "about dress 1",
+      "price": 19,
+      "avalibleSizes": ["XL", "XXL"]
+    },
+    {
+      "_id": "dress2",
+      "title": "Dress 2",
+      "image": "https://www.kmart.com.au/wcsstore/Kmart/images/ncatalog/f/2/69699542-1-f.jpg",
+      "description": "about dress 2",
+      "price": 29,
+      "avalibleSizes": ["S", "XXL"]
+    },
+    {
+      "_id": "dress3",
+      "title": "Dress 3",
+      "image": "https://www.kmart.com.au/wcsstore/Kmart/images/ncatalog/f/2/69699542-1-f.jpg",
+      "description": "about dress 3",
+      "price": 39,
+      "avalibleSizes": ["XS", "M"]
+    },
+    {
+      "_id": "dress4",
+      "title": "Dress 4",
+      "image": "https://www.kmart.com.au/wcsstore/Kmart/images/ncatalog/f/2/69699542-1-f.jpg",
+      "description": "about dress 4",
+      "price": 49,
+      "avalibleSizes": ["S", "M"]
+    },
+    {
+      "_id": "dress5",
+      "title": "Dress 5",
+      "image": "https://www.kmart.com.au/wcsstore/Kmart/images/ncatalog/f/2/69699542-1-f.jpg",
+      "description": "about dress 5",
+      "price": 59,
+      "avalibleSizes": ["L", "XL"]
+    },
+    {
+      "_id": "dress6",
+      "title": "Dress 6",
+      "image": "https://www.kmart.com.au/wcsstore/Kmart/images/ncatalog/f/2/69699542-1-f.jpg",
+      "description": "about dress 6",
+      "price": 69,
+      "avalibleSizes": ["XS", "M"]
+    }
+  ]
+}
