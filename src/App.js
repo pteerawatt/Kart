@@ -1,6 +1,7 @@
 import React from 'react';
 import data from "./data.json";
 import Products from "./components/products";
+import Filter from './components/Filter';
 
 class App extends React.Component {
   constructor() {
@@ -20,6 +21,7 @@ class App extends React.Component {
         <main>
           <div className="content">
             <div class="main">
+              <Filter count={this.state.products.length} />
               <Products products={this.state.products} />
             </div>
             <div className="sidebar">Cart Items</div>
