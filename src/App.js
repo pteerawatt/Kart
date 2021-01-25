@@ -15,15 +15,15 @@ class App extends React.Component {
   }
 
   sortProducts = (event) => {
-    let sort = event.target.value;
-    this.setState({
+    let sort = event.target ? event.target.value : event;
+    this.setState(state => ({
       sort: sort,
       products: this.state.products.slice().sort((a, b) => (
         sort === "lowest" ? (a.price > b.price ? 1:-1) :
         sort === "highest" ? (a.price < b.price ? 1: -1) :
         (a._id > b._id ? -1:1)
       ))
-    })
+    }))
   }
 
   filterProducts = (event) => {
