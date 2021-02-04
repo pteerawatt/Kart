@@ -18,22 +18,22 @@ class App extends React.Component {
     localStorage.setItem("cartItems", JSON.stringify({ cartItems: cartItems.filter(item => item._id !== product._id) }));
   }
 
-  addToCart = (product) => {
-    const cartItems = this.state.cartItems.slice();
-    let alreadyInCart = false;
-    cartItems.forEach(item => {
-      // if item already exist in cart, increment the item.
-      if (item._id === product._id) {
-        item.count++;
-        alreadyInCart = true;
-      }
-    })
-    if (!alreadyInCart) {
-      cartItems.push({ ...product, count: 1 })
-    }
-    this.setState({ cartItems });
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }
+  // addToCart = (product) => {
+  //   const cartItems = this.state.cartItems.slice();
+  //   let alreadyInCart = false;
+  //   cartItems.forEach(item => {
+  //     // if item already exist in cart, increment the item.
+  //     if (item._id === product._id) {
+  //       item.count++;
+  //       alreadyInCart = true;
+  //     }
+  //   })
+  //   if (!alreadyInCart) {
+  //     cartItems.push({ ...product, count: 1 })
+  //   }
+  //   this.setState({ cartItems });
+  //   localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  // }
 
   render() {
     return (
@@ -46,7 +46,7 @@ class App extends React.Component {
             <div className="content">
               <div className="main">
                 <Filter />
-                <Products addToCart={this.addToCart} />
+                <Products />
               </div>
               <div className="sidebar">
                 <Cart removeFromCart={this.removeFromCart} />

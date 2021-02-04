@@ -28,7 +28,6 @@ class Cart extends Component {
 
   render() {
     const cartItems = this.props.cartItems
-    console.log(cartItems)
     return (
       <div>
         {cartItems.length === 0 ? <div className="cart cart-header"> Cart is empty </div> :
