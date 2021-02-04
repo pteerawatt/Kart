@@ -8,9 +8,6 @@ import { fetchProducts } from '../actions/productActions';
 import { addToCart } from '../actions/cartActions';
 
 class Products extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     this.props.fetchProducts();

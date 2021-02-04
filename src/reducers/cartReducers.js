@@ -1,4 +1,4 @@
-import { HANDLE_CHANGE_CART, FETCH_CART_ITEM, ADD_TO_CART } from '../types'
+import { HANDLE_CHANGE_CART, FETCH_CART_ITEM, ADD_TO_CART, REMOVE_FROM_CART } from '../types'
 
 export const cartReducer = (state = {}, action) => {
   switch (action.type) {
@@ -18,6 +18,10 @@ export const cartReducer = (state = {}, action) => {
       if (!addedToCart) copyCart.push({...action.payload, count: 1});
       localStorage.setItem("cartItems", JSON.stringify(copyCart));
       return {...state, cartItems: copyCart};
+    case REMOVE_FROM_CART:
+      let currentCart = state.cartItems.slice().filter(item => item._id !== action.payload._id);
+      localStorage.setItem("cartItems", JSON.stringify(currentCart));
+      return {...state, cartItems: currentCart }
     default:
       return state;
   }

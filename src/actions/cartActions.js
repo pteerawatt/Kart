@@ -1,4 +1,4 @@
-import { HANDLE_CHANGE_CART, FETCH_CART_ITEM, ADD_TO_CART } from '../types'
+import { HANDLE_CHANGE_CART, FETCH_CART_ITEM, ADD_TO_CART, REMOVE_FROM_CART } from '../types'
 
 export const handleChangeCart = (e) => (dispatch) => {
   dispatch({
@@ -18,6 +18,13 @@ export const fetchCartItem = () => async (dispatch) => {
 export const addToCart = (product) => (dispatch) => {
   dispatch({
     type: ADD_TO_CART,
+    payload: product
+  })
+}
+
+export const removeFromCart = (product) => (dispatch) => {
+  dispatch({
+    type: REMOVE_FROM_CART,
     payload: product
   })
 }

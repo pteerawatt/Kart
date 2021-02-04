@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import formatCurrency from '../util';
 import Fade from 'react-reveal/Fade';
 import { connect } from 'react-redux';
-import { handleChangeCart, fetchCartItem } from '../actions/cartActions';
+import { handleChangeCart, fetchCartItem, removeFromCart } from '../actions/cartActions';
 
 class Cart extends Component {
   constructor(props) {
@@ -100,4 +100,4 @@ export default connect((state) => ({
   email: state.cart.email,
   address: state.cart.address,
   cartItems: state.cart.cartItems || []
-}), { handleChangeCart, fetchCartItem })(Cart)
+}), { handleChangeCart, fetchCartItem, removeFromCart })(Cart)
