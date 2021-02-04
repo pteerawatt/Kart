@@ -6,34 +6,6 @@ import store from './store';
 import { Provider } from 'react-redux';
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-    }
-  }
-
-  removeFromCart = (product) => {
-    const cartItems = this.state.cartItems.slice();
-    this.setState({ cartItems: cartItems.filter(item => item._id !== product._id) })
-    localStorage.setItem("cartItems", JSON.stringify({ cartItems: cartItems.filter(item => item._id !== product._id) }));
-  }
-
-  // addToCart = (product) => {
-  //   const cartItems = this.state.cartItems.slice();
-  //   let alreadyInCart = false;
-  //   cartItems.forEach(item => {
-  //     // if item already exist in cart, increment the item.
-  //     if (item._id === product._id) {
-  //       item.count++;
-  //       alreadyInCart = true;
-  //     }
-  //   })
-  //   if (!alreadyInCart) {
-  //     cartItems.push({ ...product, count: 1 })
-  //   }
-  //   this.setState({ cartItems });
-  //   localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  // }
 
   render() {
     return (
@@ -49,7 +21,7 @@ class App extends React.Component {
                 <Products />
               </div>
               <div className="sidebar">
-                <Cart removeFromCart={this.removeFromCart} />
+                <Cart />
               </div>
             </div>
           </main>
