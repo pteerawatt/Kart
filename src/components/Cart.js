@@ -1,35 +1,34 @@
 import React, { Component } from 'react'
 import formatCurrency from '../util';
 import Fade from 'react-reveal/Fade';
+import { connect } from 'react-redux';
+import { handleChangeCart, fetchCartItem } from '../actions/cartActions';
 
-export default class Cart extends Component {
+class Cart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      email: "",
-      address: "",
       showCheckout: false
     }
   }
 
-  handleInput = (e) => {
-    this.setState({[e.target.name]: e.target.value})
+  componentDidMount() {
+    this.props.fetchCartItem()
   }
 
   createOrder = (e) => {
     e.preventDefault();
     const order = {
-      name: this.state.name,
-      email: this.state.email,
-      address: this.state.address,
-      cartItems: this.props.cartItems,
+      name: this.props.name,
+      email: this.props.email,
+      address: this.props.address,
     };
-    this.props.createOrder(order);
+    alert("order" + order.name + order.email + order.address)
   }
 
   render() {
-    const { cartItems } = this.props;
+    const cartItems = this.props.cartItems
+    console.log(cartItems)
     return (
       <div>
         {cartItems.length === 0 ? <div className="cart cart-header"> Cart is empty </div> :
@@ -71,16 +70,16 @@ export default class Cart extends Component {
                       <ul className="form-container">
                         <li>
                           <label>Email</label>
-                          <input name="email" type="email" required onChange={this.handleInput}></input>
+                          <input name="email" type="email" required onChange={e => this.props.handleChangeCart(e)}></input>
                         </li>
                         <li>
                           <label>Name</label>
-                          <input name="name" type="text" required onChange={this.handleInput}></input>
+                          <input name="name" type="text" required onChange={e => this.props.handleChangeCart(e)}></input>
                         </li>
                         <li>
                           <label>Address</label>
-                          <input name="address" type="text" required onChange={this.handleInput}></input>
-                        </li> 
+                          <input name="address" type="text" required onChange={e => this.props.handleChangeCart(e)}></input>
+                        </li>
                         <li>
                           <button className="button primary" type="submit">Checkout</button>
                         </li>
@@ -96,3 +95,10 @@ export default class Cart extends Component {
     )
   }
 }
+
+export default connect((state) => ({
+  name: state.cart.name,
+  email: state.cart.email,
+  address: state.cart.address,
+  cartItems: state.cart.cartItems || []
+}), { handleChangeCart, fetchCartItem })(Cart)
